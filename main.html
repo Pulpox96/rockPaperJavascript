@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+</head>
+<body>
+    
+<script type="text/javascript">
+
+
+function computerPlay(){
+
+    let game = ["rock","paper","scissors"];
+    
+    let election = game[Math.floor((Math.random()*3))];    
+
+    return election;
+
+}
+
+
+function playGame(playerSelection, computerSelection){
+
+    playerSelection = playerSelection.toLowerCase();
+    let result = "";
+
+    switch(playerSelection === "rock"){
+        case (computerSelection === "rock"):
+            result = "Tie!";
+            break;
+
+        case (computerSelection === "paper"):
+            result = "You Lose!";
+            break;
+
+        case (computerSelection === "scissors"):
+            result = "You Win!";
+            break;
+
+        default:
+            break;
+    }
+    switch(playerSelection === "paper"){
+        case (computerSelection === "paper"):
+            result = "Tie!";
+            break;
+
+        case (computerSelection === "scissors"):
+            result = "You Lose!";
+            break;
+
+        case (computerSelection === "rock"):
+            result = "You Win!";
+            break;
+
+        default:
+            break;    
+    }
+    switch(playerSelection === "scissors"){
+        case (computerSelection === "paper"):
+            result = "You Win!";
+            break;
+
+        case (computerSelection === "scissors"):
+            result = "Tie!";
+            break;
+
+        case (computerSelection === "rock"):
+            result = "You Lose!";
+            break;
+
+        default:
+            break;  
+    }
+
+    return result;
+
+
+
+
+
+
+
+}
+
+userNumber = parseInt(prompt("Enter number of times to play"));
+
+var userWins = 0;
+var computerWIns = 0;
+
+for(let i=0; i < userNumber; i++){ 
+
+userAnswer = prompt("Enter Rock, Paper or Scissors");
+
+
+let computerChoice = computerPlay();
+
+var result = playGame(userAnswer,computerChoice); 
+
+
+if(result.includes("Win")){
+    userWins++;
+}else if(result.includes("Lose")){
+    computerWIns++;
+}
+
+
+
+console.log(result);
+} 
+
+if(userWins > computerWIns){
+    console.log("You won " + userWins + " times. You beat the computer, congrats!");
+}else if (userWins < computerWIns){
+    console.log("You won " + userWins + " times. You lost to the computer. Better luck next time.");
+}
+else{
+    console.log("You both tie the match");
+}
+
+
+</script>    
+
+
+
+</body>
+</html>
